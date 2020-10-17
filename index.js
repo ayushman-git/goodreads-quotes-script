@@ -2,7 +2,7 @@ const fs = require("fs");
 const pup = require("puppeteer");
 const URL = "https://www.goodreads.com/quotes/tag/cosmos?page=";
 const pages = 10;
-const fileName = "quotesData.js"
+const fileName = "quotesData.js";
 
 for (let page = 1; page <= pages; page++) {
   (async () => {
@@ -32,7 +32,7 @@ for (let page = 1; page <= pages; page++) {
     });
 
     for (let i = 0; i < rawQuotes[1].length; i++) {
-      quotes[i].author = rawQuotes[1][i];
+      quotes[i].author = rawQuotes[1][i].trim().replace(",", "");
     }
     console.log(quotes);
 
